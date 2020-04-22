@@ -2,6 +2,8 @@
 
 one:
   journal_entry: MyString
+  mood_id: 1
 
 two:
   journal_entry: MyString
+  mood_id: 1

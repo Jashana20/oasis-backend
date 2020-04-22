@@ -10,38 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_101129) do
+ActiveRecord::Schema.define(version: 2020_04_22_162303) do
+
+  create_table "answers", force: :cascade do |t|
+    t.string "question_answer"
+    t.integer "question_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "entries", force: :cascade do |t|
     t.string "journal_entry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "mood_id"
+    t.integer "user_id"
   end
 
   create_table "moods", force: :cascade do |t|
-    t.string "mood"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "entry_id"
   end
 
-  create_table "prompts", force: :cascade do |t|
-    t.string "prompt_answer1"
-    t.string "prompt_answer2"
-    t.string "prompt_answer3"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_moods", force: :cascade do |t|
-    t.integer "mood_id"
-    t.integer "user_id"
+  create_table "questions", force: :cascade do |t|
+    t.string "question"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.string "name"
     t.string "email"
     t.string "password"
     t.datetime "created_at", precision: 6, null: false

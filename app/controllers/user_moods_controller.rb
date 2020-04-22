@@ -1,2 +1,0 @@
-class UserMoodsController < ApplicationController
-end
